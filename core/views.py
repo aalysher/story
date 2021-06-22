@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from core.models import Story
 
-# Create your views here.
+
+def get_stories_list(preview, story_id):
+    pass
