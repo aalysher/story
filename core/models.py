@@ -6,6 +6,9 @@ class Project(models.Model):
     name = models.CharField("Название", max_length=255)
     description = models.CharField("Описание", max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class Story(models.Model):
     """Истории"""
