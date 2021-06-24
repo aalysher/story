@@ -14,7 +14,9 @@ def stories_list(request, project_id, subs_id):
     return Response(data=stories)
 
 
-
-# @api_view(['GET'])
-# def stories_case(request, story_id):
-#     certain_stories = StoryFile.objects
+@api_view(['GET'])
+def stories_case(request, story_id):
+    certain_stories = StoryFile.objects.filter(story_id=story_id).values('story_id', 'userstoryfile__is_watched',
+                                                                         'more_detailed_url', 'more_detailed_text',
+                                                                         'content_type', 'content_url', 'duration')
+    return Response(data=certain_stories)
